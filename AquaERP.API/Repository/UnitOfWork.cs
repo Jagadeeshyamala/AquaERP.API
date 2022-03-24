@@ -6,18 +6,12 @@ namespace AquaERP.API.Repository
     {
         private bool disposed=false;
         private AquaERPContext aquaERPContext = new AquaERPContext();
-
         private Repository<HrContractorDetail> hrContractorDetailRepository;
         private Repository<HrDepartmentMaster> hrDepartmentMasterRepository;
-
         private Repository<HrDesignationMaster> hrDesignationMasterRepository;
-
         private Repository<HrEmployeeInformationMaster> hrEmployeeInformationMasterRepository;
-
-
         public Repository<HrContractorDetail> HrContractorDetailRepository
         {
-
             get 
             {
                 if(this.hrContractorDetailRepository == null)

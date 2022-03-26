@@ -1,5 +1,6 @@
 ﻿using AquaERP.Model.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -28,6 +29,10 @@ namespace AquaERP.API.Repository
         }
 
         public TEntity GetT(int id)
+        {
+            return dbSet.Find(id);
+        }
+        public TEntity GetTWithGuid(Guid id)
         {
             return dbSet.Find(id);
         }

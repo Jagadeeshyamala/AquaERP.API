@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AquaERP.API.AquaERP.Services.AquaInterface;
 using AquaERP.API.AquaERP.Services.AquaBusiness;
+using System.Net.Http;
 
 
 namespace AquaERP.API.Controllers
@@ -16,19 +17,20 @@ namespace AquaERP.API.Controllers
     {
         IHrContractorDetailBusiness objContractorDetail = new HrContractorDetailBusiness();
 
+        [HttpGet]
         [Route("GetHrContractorDetails")]
         public IEnumerable<HrContractorDetail> GetHrContractorDetails()
         {
-            IEnumerable <HrContractorDetail> lstContractorDetails = new List<HrContractorDetail>();
+            IEnumerable<HrContractorDetail> lstContractorDetails = new List<HrContractorDetail>();
 
             try
             {
                 lstContractorDetails = objContractorDetail.GetHrContractorDetail();
             }
-            catch (System.ApplicationException ex)
+            catch (System.ApplicationException)
             {
 
-                //throw new HttpResponseException;
+                throw;
             }
             catch (System.Exception)
             {
@@ -36,6 +38,26 @@ namespace AquaERP.API.Controllers
                 throw;
             }
             return lstContractorDetails;
+        }
+        [HttpGet]
+        [Route("HrContractorDetailsInsert")]
+        public HrContractorDetail HrContractorDetailsInsert(HrContractorDetail input)
+        {
+            try
+            {
+                var dd = objContractorDetail.HrContractorDetailInsert(input);
+                return dd;
+            }
+            catch (System.ApplicationException)
+            {
+
+                throw;
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

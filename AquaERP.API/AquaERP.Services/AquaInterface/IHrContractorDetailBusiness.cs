@@ -8,5 +8,6 @@ namespace AquaERP.API.AquaERP.Services.AquaInterface
     public interface IHrContractorDetailBusiness
     {
         IEnumerable<HrContractorDetail> GetHrContractorDetail();
+        HrContractorDetail HrContractorDetailInsert(HrContractorDetail input);
     }
 }

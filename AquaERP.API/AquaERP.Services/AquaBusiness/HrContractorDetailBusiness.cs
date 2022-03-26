@@ -12,5 +12,11 @@ namespace AquaERP.API.AquaERP.Services.AquaBusiness
         {
             return unitOfWork.HrContractorDetailRepository.GetAll();
         }
+        public HrContractorDetail HrContractorDetailInsert(HrContractorDetail input)
+        {
+            unitOfWork.HrContractorDetailRepository.Insert(input);
+            return unitOfWork.HrContractorDetailRepository.GetTWithGuid(input.Id);
+
+        }
     }
 }

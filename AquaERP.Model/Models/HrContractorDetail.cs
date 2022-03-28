@@ -27,6 +27,6 @@ namespace AquaERP.Model.Models
         public Guid? LastUpdatedBy { get; set; }
         public DateTime? DeletedDate { get; set; }
         public Guid? DeletedBy { get; set; }
-        public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; set; }//
     }
 }

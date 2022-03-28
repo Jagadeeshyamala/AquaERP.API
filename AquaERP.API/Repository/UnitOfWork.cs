@@ -31,7 +31,7 @@ namespace AquaERP.API.Repository
                 {
                     this.hrDepartmentMasterRepository = new Repository<HrDepartmentMaster>(this.aquaERPContext);
                 }
-                return this.HrDepartmentMasterRepository;
+                return this.hrDepartmentMasterRepository;
             }
         }
 
@@ -59,6 +59,11 @@ namespace AquaERP.API.Repository
                 }
                 return this.hrEmployeeInformationMasterRepository;
             }
+        }
+
+        public void Save()
+        {
+            this.aquaERPContext.SaveChanges();
         }
         public void Dispose()
         {
